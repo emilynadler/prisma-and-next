@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Post" ADD COLUMN     "author" TEXT NOT NULL DEFAULT E'',
+ADD COLUMN     "content" TEXT NOT NULL DEFAULT E'';
