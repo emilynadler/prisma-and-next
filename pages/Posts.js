@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import Create from "./Create";
+import Link from "next/link";
 
 import { PrismaClient } from "@prisma/client";
 
@@ -10,22 +11,14 @@ const prisma = new PrismaClient();
 
 export default function Posts({ data }) {
 	//data that is coming from our form
-	const [formData, setFormData] = useState({});
+	// const [formData, setFormData] = useState({});
 	const [posts, setPosts] = useState(data);
 
-	async function savePost(e) {
-		//clear form after a user clicks submit
-		const form = document.getElementById("myForm");
-		form.reset();
-		e.preventDefault();
-		//populate posts with formData, as set through the submission fo the form
-		setPosts([...posts, formData]);
-		//fetch data from the database
+	async function handleOnSubmit(item) {
 		const response = await fetch("/api/posts", {
-			method: "POST",
-			body: JSON.stringify(formData),
+			method: "DELETE",
+			body: item.id,
 		});
-		//return the response from the database, aka the old data plus the new data submitted in the form
 		return await response.json();
 	}
 
@@ -35,12 +28,18 @@ export default function Posts({ data }) {
 				<ul className={styles.posts}>
 					{/* posts might be empty at the beginning, if not, map through it and show each on screen */}
 					{posts.map((item) => (
-						<li key={item.id}>
+						<li className="box" key={item.id}>
 							<span>
 								<strong>{item.title}</strong>
 							</span>
-							<span>{item.author}</span>
+							<span>Author: {item.author}</span>
 							<span>{item.content}</span>
+							<Link href={`/allposts/${item.id}`}>
+								<a className="continue">Continue reading {item.title}</a>
+							</Link>
+							<form onSubmit={(e) => handleOnSubmit(item)}>
+								<button>Delete</button>
+							</form>
 						</li>
 					))}
 				</ul>
