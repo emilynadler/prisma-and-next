@@ -1,16 +1,40 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+.Navbarone {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(19, 63, 21);
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 0.5rem;
+	vertical-align: top;
+	position: fixed;
+	top: 0;
+}
+
+.Navbartwo {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: rgb(250, 185, 234);
+	text-align: center;
+	padding: 14px 16px;
 }
