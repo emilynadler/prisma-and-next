@@ -34,7 +34,7 @@ export default function Posts({ data }) {
 							</span>
 							<span>Author: {item.author}</span>
 							<span>{item.content}</span>
-							<Link href={`/allposts/${item.id}`}>
+							<Link href={`/${item.id}`}>
 								<a className="continue">Continue reading {item.title}</a>
 							</Link>
 							<form onSubmit={(e) => handleOnSubmit(item)}>
