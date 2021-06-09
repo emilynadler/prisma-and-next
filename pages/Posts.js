@@ -12,12 +12,14 @@ const prisma = new PrismaClient();
 export default function Posts({ data }) {
 	//data that is coming from our form
 	// const [formData, setFormData] = useState({});
-	const [posts, setPosts] = useState(data);
-
-	async function handleOnSubmit(item) {
+	const [posts, updatePosts] = useState(data);
+	async function handleOnSubmit(itemid) {
+		//delete post from array of posts (front end delete)
+		updatePosts(posts.filter((item) => item.id !== itemid));
+		//delete post from database (back end delete)
 		const response = await fetch("/api/posts", {
 			method: "DELETE",
-			body: item.id,
+			body: itemid,
 		});
 		return await response.json();
 	}
@@ -37,8 +39,8 @@ export default function Posts({ data }) {
 							<Link href={`/${item.id}`}>
 								<a className="continue">Continue reading {item.title}</a>
 							</Link>
-							<form onSubmit={(e) => handleOnSubmit(item)}>
-								<button>Delete</button>
+							<form onSubmit={(e) => handleOnSubmit(item.id)}>
+								<button type="submit">Delete</button>
 							</form>
 						</li>
 					))}

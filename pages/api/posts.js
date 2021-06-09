@@ -20,6 +20,7 @@ export default async (req, res) => {
 				id: parseInt(body),
 			},
 		});
-		res.json(deletedPost);
+		// console.log(posts);
+		res.json(posts);
 	}
 };

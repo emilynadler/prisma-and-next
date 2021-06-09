@@ -47,8 +47,8 @@ li a {
 .box {
 	background: white;
 	padding: 2em;
-	position: relative;
-	width: 200%;
+	position: left;
+	width: 100%;
 	align-items: center;
 	box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
 	transition: transform 300ms, box-shadow 300ms;
