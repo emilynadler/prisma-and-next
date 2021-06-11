@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
 			<Component {...pageProps} />
 			<Navbar className={styles.container} />
 			<Head>
-				<title>Blog</title>
+				<title>Emily's App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 		</>

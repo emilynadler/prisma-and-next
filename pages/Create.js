@@ -1,11 +1,13 @@
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export default function Create({ data }) {
+	const router = useRouter();
 	//data that is coming from our form
 	const [formData, setFormData] = useState({});
 	const [posts, setPosts] = useState(data);
@@ -22,6 +24,7 @@ export default function Create({ data }) {
 			method: "POST",
 			body: JSON.stringify(formData),
 		});
+		router.push("./Posts");
 		//return the response from the database, aka the old data plus the new data submitted in the form
 		return await response.json();
 	}

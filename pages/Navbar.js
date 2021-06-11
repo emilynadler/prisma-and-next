@@ -4,23 +4,31 @@ export default function Navbar() {
 	return (
 		<ul className="Navbarone">
 			<li className="Navbartwo">
+				<a className="navlinks" href="/">
+					Home
+				</a>
+			</li>
+			<li className="Navbartwo">
+				<a className="navlinks" href="./Posts">
+					Posts
+				</a>
+			</li>
+			<li className="Navbartwo">
 				<a className="navlinks" href="./Create">
 					Create a Post
 				</a>
 			</li>
 			<li className="Navbartwo">
-				<a className="navlinks" href="./Emily">
-					About Me
+				<a className="navlinks" href="./Search">
+					Giphy Search
 				</a>
 			</li>
+
 			<li className="Navbartwo">
-				<a className="navlinks" href="/">
-					Home
+				<a className="navlinks" href="./Weather">
+					Weather
 				</a>
 			</li>
-			<Link href="/Posts">
-				<a className="navlinks">Posts</a>
-			</Link>
 		</ul>
 	);
 }
